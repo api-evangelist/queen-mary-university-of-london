@@ -1,0 +1,46 @@
+---
+name: Queen Mary University of London
+description: Queen Mary University of London public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/queen-mary-university-of-london/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      Queen Mary University of London has no central, branded developer portal
+      or signup-gated public REST API program. The confirmed public,
+      machine-accessible surface is standards-based and research-oriented: the
+      QMRO DSpace institutional repository exposes a public OAI-PMH interface
+      (verb=Identify returned HTTP 200, though the host intermittently rate-
+      limits non-browser clients), and the QMUL GitHub organization (HTTP 200,
+      ~18 repos) publishes staff open-source code. Core platforms — the main
+      website, MyQMUL, and the FOI datasets page — return HTTP 403 to scripted
+      requests and are browser/auth oriented; QMplus (Moodle) loads publicly but
+      is a gated LMS, not a documented API. No endpoints were fabricated; only
+      URLs probed live or independently corroborated (OpenDOAR/ROAR) are listed.
+    endpoints:
+      - url: https://qmro.qmul.ac.uk/oai/request?verb=Identify
+        status: 200
+        note: QMRO DSpace OAI-PMH 2.0 endpoint; intermittently blocks non-browser user agents.
+      - url: https://qmro.qmul.ac.uk/
+        status: 403
+        note: QMRO repository home; blocks scripted requests, loads in browser.
+      - url: https://github.com/QMUL
+        status: 200
+        note: Confirmed official QMUL GitHub organization, staff open-source code (~18 repos).
+      - url: https://www.qmul.ac.uk/
+        status: 403
+        note: Official institutional website; 403 to curl, browser-accessible.
+      - url: https://www.qmul.ac.uk/about/foi/datasets/
+        status: 403
+        note: FOI datasets page (downloadable files, not an API); 403 to scripted request.
+      - url: https://my.qmul.ac.uk/
+        status: 403
+        note: MyQMUL student/staff portal; authentication-gated.
+      - url: https://qmplus.qmul.ac.uk/
+        status: 200
+        note: QMplus Moodle LMS landing page; gated learning platform, no public API docs.
+      - url: https://www.linkedin.com/school/queen-mary-university-of-london
+        status: 200
+        note: Official LinkedIn school page.
