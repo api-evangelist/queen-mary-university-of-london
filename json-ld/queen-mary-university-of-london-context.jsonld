@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "qmul": "https://www.qmul.ac.uk/ns/",
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "logo": "schema:logo",
+    "sameAs": "schema:sameAs",
+    "department": {
+      "@id": "schema:department",
+      "@type": "schema:CollegeOrUniversity"
+    },
+    "Organization": "schema:CollegeOrUniversity",
+    "repository": {
+      "@id": "qmul:repository",
+      "@type": "schema:DataCatalog"
+    },
+    "oaiBaseURL": {
+      "@id": "oai:baseURL",
+      "@type": "@id"
+    },
+    "record": {
+      "@id": "oai:record",
+      "@type": "schema:CreativeWork"
+    },
+    "identifier": "dc:identifier",
+    "title": "dc:title",
+    "creator": "dc:creator",
+    "subject": "dc:subject",
+    "date": {
+      "@id": "dc:date",
+      "@type": "schema:Date"
+    },
+    "type": "dc:type",
+    "publisher": "dc:publisher",
+    "rights": "dc:rights",
+    "codeRepository": {
+      "@id": "schema:codeRepository",
+      "@type": "@id"
+    }
+  },
+  "@type": "Organization",
+  "name": "Queen Mary University of London",
+  "url": "https://www.qmul.ac.uk/",
+  "description": "Queen Mary University of London (QMUL) is a public research university in London, United Kingdom, and a member of the Russell Group. Its public, machine-accessible footprint is research- and library-oriented, centered on the QMRO open-access institutional repository (OAI-PMH) and a public GitHub organization.",
+  "sameAs": [
+    "https://github.com/QMUL",
+    "https://www.linkedin.com/school/queen-mary-university-of-london",
+    "https://qmro.qmul.ac.uk/"
+  ],
+  "repository": {
+    "@type": "schema:DataCatalog",
+    "name": "Queen Mary Research Online (QMRO)",
+    "url": "https://qmro.qmul.ac.uk/",
+    "description": "Open-access DSpace institutional repository exposing an OAI-PMH 2.0 metadata-harvesting interface.",
+    "oaiBaseURL": "https://qmro.qmul.ac.uk/oai/request"
+  },
+  "codeRepository": "https://github.com/QMUL"
+}

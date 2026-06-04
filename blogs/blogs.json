@@ -1,0 +1,14 @@
+{
+  "repo": "queen-mary-university-of-london",
+  "feeds": [
+    {
+      "source": "https://www.qmul.ac.uk/media/news/",
+      "feed_url": "https://www.qmul.ac.uk/media/news/",
+      "title": "Queen Mary University of London News",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-03T00:00:00Z"
+}

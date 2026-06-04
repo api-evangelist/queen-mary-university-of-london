@@ -82,6 +82,10 @@ common:
     url: finops/queen-mary-university-of-london-finops.yml
   - type: Review
     url: review.yml
+  - type: x-blogs
+    url: blogs/blogs.json
+  - type: x-json-ld
+    url: json-ld/queen-mary-university-of-london-context.jsonld
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
