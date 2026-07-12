@@ -66,6 +66,8 @@ apis:
       - type: GitHub
         url: https://github.com/QMUL
 common:
+  - type: DomainSecurity
+    url: security/queen-mary-university-of-london-domain-security.yml
   - type: Website
     url: https://www.qmul.ac.uk/
   - type: GitHub
