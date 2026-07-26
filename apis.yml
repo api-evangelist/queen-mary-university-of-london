@@ -1,4 +1,3 @@
----
 aid: queen-mary-university-of-london
 name: Queen Mary University of London
 description: >-
@@ -14,9 +13,21 @@ description: >-
   (QMplus/Moodle, MyQMUL, library discovery) sit behind institutional
   authentication.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+    - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/queen-mary-university-of-london.png
 url: https://raw.githubusercontent.com/api-evangelist/queen-mary-university-of-london/refs/heads/main/apis.yml
 tags:
   - Education
@@ -30,41 +41,9 @@ tags:
   - United Kingdom
   - London
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-07-25'
 specificationVersion: '0.19'
-apis:
-  - aid: queen-mary-university-of-london:qmro-oai-pmh
-    name: Queen Mary Research Online (QMRO) OAI-PMH Interface
-    description: >-
-      Queen Mary Research Online (QMRO) is the university's open-access
-      institutional repository, built on DSpace. It exposes a public OAI-PMH 2.0
-      metadata-harvesting endpoint that supports the standard verbs (Identify,
-      ListRecords, ListSets, GetRecord, etc.) for harvesting Dublin Core and
-      related metadata for theses and research outputs. No authentication is
-      required.
-    humanURL: https://qmro.qmul.ac.uk/
-    baseURL: https://qmro.qmul.ac.uk/oai/request
-    tags: [ Research, Open Access, Repository, OAI-PMH, DSpace, Metadata, Library ]
-    properties:
-      - type: Documentation
-        url: https://qmro.qmul.ac.uk/
-      - type: Documentation
-        url: https://opendoar.ac.uk/repository/2185
-  - aid: queen-mary-university-of-london:github
-    name: QMUL GitHub Organization
-    description: >-
-      Public GitHub organization for code released to the world by the staff of
-      Queen Mary University of London. Contains open-source research and
-      teaching repositories (for example AVA, poLCAParallel, and Moodle-related
-      projects). This is source code, not a hosted/documented public API
-      product, but it is a confirmed public developer resource.
-    humanURL: https://github.com/QMUL
-    tags: [ Open Source, GitHub, Research, Code ]
-    properties:
-      - type: Documentation
-        url: https://github.com/QMUL
-      - type: GitHub
-        url: https://github.com/QMUL
+apis: []
 common:
   - type: DomainSecurity
     url: security/queen-mary-university-of-london-domain-security.yml
