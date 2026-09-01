@@ -1,71 +1,672 @@
 aid: queen-mary-university-of-london
 name: Queen Mary University of London
+x-type: university
+x-category: Public Research University
 description: >-
-  Queen Mary University of London (QMUL) is a public research university in
-  London, United Kingdom, and a member of the Russell Group, ranked #120 in the
-  QS World University Rankings 2025. Its public, machine-accessible footprint is
-  research- and library-oriented rather than a formal developer program: Queen
-  Mary Research Online (QMRO) is an open-access DSpace institutional repository
-  that exposes a standards-based OAI-PMH metadata-harvesting interface, and the
-  university maintains a public GitHub organization (QMUL) for code released by
-  its staff. QMUL does not publish a central, branded developer portal with
-  signup-gated REST APIs; core student, timetable, and library platforms
-  (QMplus/Moodle, MyQMUL, library discovery) sit behind institutional
-  authentication.
+  Queen Mary University of London (QMUL) is a public research university in London and a member of
+  the Russell Group. It runs no developer portal, publishes no OpenAPI, and offers no self-service
+  API credentials — but the claim that it therefore has no programmable surface is wrong, and this
+  profile replaces it. Four surfaces are institution-operated and were verified live: Queen Mary
+  Research Online (QMRO) runs DSpace 8.4 and answers an unauthenticated HAL service document at
+  qmro.qmul.ac.uk/server/api advertising 79 endpoint families; QMplus, the university's Moodle
+  learning platform, is an LTI 1.3 Advantage tool platform publishing its own RSA key set, OIDC
+  auth, token and services endpoints; the QMplus Moodle web-services REST entry point is live and
+  token-gated; and Apocrita, the university's own HPC service, publishes machine-readable
+  documentation at docs.hpc.qmul.ac.uk on Queen Mary's own address space. Two more are federated
+  identity the institution genuinely owns: a Shibboleth Identity Provider registered in the Jisc UK
+  Access Management Federation with the scope qmul.ac.uk, and a Microsoft Entra ID tenant whose
+  OpenID Connect discovery document resolves from the qmul.ac.uk domain. Two are tenant
+  relationships on suppliers' platforms and are recorded as relationships, not as Queen Mary's
+  engineering: the Ex Libris Primo VE / Alma library discovery deployment behind
+  librarysearch.qmul.ac.uk, whose public configuration API and SRU endpoint both answer, and the
+  SearchStax Solr index that powers site and course search. Three are registry memberships — a
+  DataCite provider record, a Crossref member id with its own DOI prefix, and a ROR identifier.
+  Student-facing systems (MySIS, timetables, MyQMUL) are authentication-gated, no open-data portal
+  exists, and the institution's public dataset publishing amounts to CSV files under the Freedom of
+  Information publication scheme.
 type: Index
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
-  callable_host: false
+  commercial: false
+  callable_host: true
   label: Hosted service · you call their endpoint
-  confidence: medium
+  confidence: high
   source:
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+    - probe
+  generated: '2026-09-01'
+  method: probed
+  note: >-
+    Corrected from callable_host false. Queen Mary does operate callable hosts — the QMRO DSpace
+    REST API, the QMplus LTI and Moodle web-service endpoints, and the Primo VE configuration and
+    SRU endpoints all answered live on 2026-09-01. What it does not operate is a developer
+    programme around them.
 accessModel:
   pricing: free
-  onboarding: unknown
+  onboarding: none
   trial: false
   try_now: false
-  public: false
+  public: true
   label: Free
   confidence: medium
   source:
-    - plans
-  generated: '2026-07-22'
-  method: derived
+    - probe
+  generated: '2026-09-01'
+  method: probed
+  note: >-
+    Public in the sense that the repository, discovery and LTI keyset endpoints answer without a
+    credential. There is no signup, no key issuance, no plan and no documented rate limit; anything
+    holding student or staff data requires an institutional identity.
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/queen-mary-university-of-london.png
 url: https://raw.githubusercontent.com/api-evangelist/queen-mary-university-of-london/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
   - University
+  - Higher Education
+  - Education
   - Research
-  - Open Access
-  - Repository
-  - OAI-PMH
-  - Library
   - United Kingdom
   - London
+  - Russell Group
+  - Open Access
+  - Research Repository
+  - Identity Federation
+  - Library
+  - Learning Management
+  - LTI
+  - Research Computing
 created: '2026-06-03'
-modified: '2026-07-25'
+modified: '2026-09-01'
 specificationVersion: '0.23'
-apis: []
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Six institution-operated surfaces (four institution, two federation) and two tenant
+    relationships were found and verified by live
+    probe on 2026-09-01, against a repo that previously carried an empty apis[] block and a
+    description asserting that only OAI-PMH and a GitHub organization existed. The single most
+    important correction is that the 2026-06-03 review recorded QMRO's OAI-PMH endpoint as "HTTP
+    200, verb=Identify" — that response is 2426 bytes of obfuscated JavaScript bot-challenge with
+    no OAI-PMH envelope in it, a textbook soft-200, and the DSpace 8 OAI path returns an explicit
+    WAF interstitial ("Web Page Blocked!", attack_ID 20000021). OAI-PMH is therefore recorded as
+    unverified, not conformant. What is real and was missed: the DSpace 8.4 REST API with 79
+    endpoint families, an LTI 1.3 Advantage tool platform on QMplus with a live JWKS, the Moodle
+    web-services endpoint, the Shibboleth IdP in the UK Access Management Federation, the Entra ID
+    tenant, the Apocrita HPC documentation site, and a Primo VE deployment whose public
+    configuration API returns 161KB of JSON naming "Queen Mary University of London" and whose SRU
+    endpoint returned 84,622 MARCXML records to a live query. Two candidate surfaces were rejected
+    on evidence rather than recorded: qmul.figshare.com is NOT a Figshare tenancy — a control probe
+    of an invented subdomain returns the identical HTTP 202 with a zero-byte body, so the response
+    proves a wildcard, not a tenant — and the AWS API Gateway URL embedded in every qmul.ac.uk page
+    is explicitly marked rel="nofollow" aria-hidden "honeypot link", a bot trap, not an API. The
+    profile is thin in developer-programme terms because Queen Mary genuinely runs none: no
+    api.qmul.ac.uk, no developer.qmul.ac.uk, no data.qmul.ac.uk and no opendata.qmul.ac.uk resolve;
+    no llms.txt; no security.txt; the 15,475-URL sitemap contains no developer or API page; and
+    MySIS, timetables and MyQMUL are all sign-in walls.
+  assessed: '2026-09-01'
+  method: pipeline-university + live probe
+  institution_surfaces: 4
+  federation_surfaces: 2
+  tenant_surfaces: 2
+  registry_surfaces: 3
+  contracts_saved: 0
+  vendor_surfaces_removed: 0
+  evidence:
+    - url: https://qmro.qmul.ac.uk/server/api
+      status: 200
+      note: >-
+        8621 bytes application/hal+json. dspaceVersion "DSpace 8.4", dspaceServer
+        https://qmro.qmul.ac.uk/server, 79 _links entries. Saved to examples/.
+    - url: https://qmro.qmul.ac.uk/server/oai/request?verb=Identify
+      status: 403
+      note: 'WAF interstitial: "Web Page Blocked!", attack_ID 20000021. Live and blocked, not absent.'
+    - url: https://qmro.qmul.ac.uk/oai/request?verb=Identify
+      status: 200
+      note: >-
+        SOFT 200 — obfuscated JavaScript bot challenge, not an OAI-PMH response. This is the status
+        code the 2026-06-03 review credited as a working OAI-PMH endpoint.
+    - url: https://qmro.qmul.ac.uk/
+      status: 403
+      note: WAF blocks scripted clients; the repository loads in a browser. Live and blocked, not dead.
+    - url: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fidp.shibboleth.qmul.ac.uk%2Fidp%2Fshibboleth
+      status: 200
+      note: >-
+        9691 bytes signed SAML EntityDescriptor, scope qmul.ac.uk. Saved to authentication/.
+    - url: https://login.microsoftonline.com/qmul.ac.uk/v2.0/.well-known/openid-configuration
+      status: 200
+      note: >-
+        Entra ID tenant 569df091-b013-40e3-86ee-bd9cb9e25814, region EU. Saved to authentication/.
+    - url: https://qmplus.qmul.ac.uk/mod/lti/certs.php
+      status: 200
+      note: LTI 1.3 JWKS, one RSA key, kid 320e76b70c41719705ce. Saved to authentication/.
+    - url: https://qmplus.qmul.ac.uk/mod/lti/token.php
+      status: 400
+      note: LTI Advantage token endpoint present; 400 to a bare GET is protocol behaviour.
+    - url: https://qmplus.qmul.ac.uk/mod/lti/services.php
+      status: 405
+      note: LTI Advantage services endpoint present.
+    - url: https://qmplus.qmul.ac.uk/webservice/rest/server.php
+      status: 200
+      note: 'Moodle web services live; returns moodle_exception ERRORCODE invalidtoken.'
+    - url: https://librarysearch.qmul.ac.uk/primaws/rest/pub/configuration/vid/44QMUL_INST:44QMUL
+      status: 200
+      note: >-
+        161889 bytes JSON. institution.description "Queen Mary University of London", customer-code
+        44QMUL_INST. Ex Libris Primo VE — tenant, not Queen Mary's contract.
+    - url: https://librarysearch.qmul.ac.uk/view/sru/44QMUL_INST?version=1.2&operation=searchRetrieve&recordSchema=marcxml&query=alma.all_for_ui=london&maximumRecords=1
+      status: 200
+      note: SRU 1.2 MARCXML, numberOfRecords 84622. Sample saved to examples/.
+    - url: https://searchcloud-1-eu-west-2.searchstax.com/29847/qmu-1736/emselect
+      status: 401
+      note: >-
+        401 unauthenticated; 200 with the token Queen Mary publishes in its own page source. Tenant
+        Solr index (account 29847, index qmu-1736) behind qmul.ac.uk site and course search. The
+        token is deliberately not recorded in this repo.
+    - url: https://api.datacite.org/providers?query=queen+mary
+      status: 200
+      note: Provider "iuar", memberType consortium_organization, rorId https://ror.org/026zzn846.
+    - url: https://api.datacite.org/repositories?provider-id=iuar
+      status: 200
+      note: Repository client "bl.qmul", created 2015-04-29.
+    - url: https://api.crossref.org/members?query=queen+mary
+      status: 200
+      note: Member 11031, DOI prefix 10.26494.
+    - url: https://ror.org/026zzn846
+      status: 200
+      note: ROR identifier for Queen Mary University of London.
+    - url: https://docs.hpc.qmul.ac.uk/
+      status: 200
+      note: >-
+        "HPC @ QMUL" — Apocrita documentation, MkDocs Material, with search/search_index.json
+        (810795 bytes, 200) and a sitemap. Resolves to doc-01.hpc.qmul.ac.uk, 138.37.16.198, Queen
+        Mary's own address space.
+    - url: https://researchpublications.its.qmul.ac.uk/publications/
+      status: 200
+      note: >-
+        Symplectic Elements publications portal on Queen Mary's own host. No API — /publications/api,
+        /publications/oai and /publications/rss all 404. Recorded as a pointer only.
+    - url: https://qmul.figshare.com/
+      status: 202
+      note: >-
+        REJECTED as a tenancy. A control probe of zzznotarealtenant.figshare.com returns the
+        identical 202 with a zero-byte body, so this response proves a wildcard, not a Queen Mary
+        Figshare portal.
+    - url: https://4xvmpmomo3.execute-api.us-east-1.amazonaws.com/ProdStage
+      status: 200
+      note: >-
+        REJECTED. Present on every qmul.ac.uk page as rel="nofollow" style="display:none"
+        aria-hidden="true" and labelled "honeypot link". A bot trap, not an API.
+    - url: https://timetables.qmul.ac.uk/
+      status: 302
+      note: Redirects to login.aspx. Institution-operated, authentication-gated, no public API.
+    - url: https://mysis.qmul.ac.uk/
+      status: 200
+      note: Student information system sign-in wall. No public API.
+    - url: https://www.qmul.ac.uk/media/qmul/about/collegeinfo/datasets/module-enrolments.csv
+      status: 200
+      note: 1085844 bytes CSV of module enrolments — the FOI publication scheme, the whole of the open data.
+    - url: https://www.qmul.ac.uk/llms.txt
+      status: 404
+      note: No agent-facing catalogue.
+    - url: https://www.qmul.ac.uk/.well-known/security.txt
+      status: 300
+      note: Apache multiple-choices, not a security.txt.
+    - url: https://api.qmul.ac.uk/
+      status: 0
+      note: Does not resolve. No central API host.
+    - url: https://data.qmul.ac.uk/
+      status: 0
+      note: Does not resolve. No open data portal.
+    - url: https://opendata.qmul.ac.uk/
+      status: 0
+      note: Does not resolve.
+    - url: https://research.qmul.ac.uk/
+      status: 0
+      note: Does not resolve. No CRIS portal on a research. host.
+    - url: https://www.linkedin.com/school/queen-mary-university-of-london
+      status: 999
+      note: LinkedIn bot challenge. Live and blocked, not dead.
+  audit_script_caveat: >-
+    audit-university-contracts.py reported no hosts at all for this repo because apis[] was empty —
+    a host-based verdict has nothing to classify when no surface has ever been recorded. An empty
+    audit is not evidence of an empty institution, and this cohort will hold more repos in that
+    state than it holds misattributed ones. Note also that librarysearch.qmul.ac.uk would be read
+    as institution-operated by hostname alone; DNS shows it CNAMEs to qmul.primo.exlibrisgroup.com,
+    which is why it is recorded as tenant here.
+apis:
+  - aid: queen-mary-university-of-london:qmro-dspace-rest
+    name: Queen Mary Research Online (QMRO) — DSpace 8.4 REST API
+    description: >-
+      Queen Mary's open-access institutional repository runs DSpace 8.4 and exposes the standard
+      DSpace REST API on the university's own host. The HAL service document at /server/api answers
+      unauthenticated and advertises 79 endpoint families including core items, collections,
+      communities, bitstreams and metadata schemas, a discovery search plane, a versioning plane, a
+      statistics and usage-report plane, PID resolution, and LDN / COAR Notify inboxes. DSpace is
+      open-source software Queen Mary self-hosts; no generic DSpace specification is saved under
+      this slug, because the contract belongs to the DSpace project rather than to the university.
+      A web application firewall in front of the host intermittently answers scripted clients with
+      a JavaScript challenge or an outright block, which is what made this surface invisible to the
+      2026-06-03 profile.
+    humanURL: https://qmro.qmul.ac.uk/
+    baseURL: https://qmro.qmul.ac.uk/server/api
+    tags:
+      - Research Repository
+      - Open Access
+      - DSpace
+      - Scholarly Communication
+      - Metadata
+    properties:
+      - type: x-service-document
+        url: examples/queen-mary-university-of-london-qmro-dspace-api-root.json
+      - type: Authentication
+        url: authentication/queen-mary-university-of-london-authentication.yml
+      - type: ResearchRepository
+        url: https://qmro.qmul.ac.uk/
+    x-operator: institution
+    x-operator-evidence: >-
+      Host qmro.qmul.ac.uk is under Queen Mary's own registrable domain, and the service document
+      self-declares dspaceUI and dspaceServer as https://qmro.qmul.ac.uk. The software is DSpace;
+      the deployment, the host and the content are the institution's.
+    x-software: DSpace 8.4
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        200, 8621 bytes, application/hal+json on 2026-09-01. Repeat requests within the same minute
+        are met with a WAF JavaScript challenge or a connection reset; the surface is live and
+        rate-protected, not intermittent. The default dspaceName "DSpace at My University" is left
+        unconfigured on the instance.
+
+  - aid: queen-mary-university-of-london:qmplus-lti-platform
+    name: QMplus LTI 1.3 Advantage Tool Platform
+    description: >-
+      QMplus, Queen Mary's Moodle virtual learning environment, runs as an LTI 1.3 / LTI Advantage
+      tool platform and publishes the four endpoints the standard requires an external learning tool
+      to find: a JSON Web Key Set of the platform's RSA signing keys, an OIDC authorization
+      endpoint, an access-token endpoint that exchanges a signed client JWT, and the Advantage
+      services endpoint that carries Names and Roles Provisioning and Assignment and Grade Services.
+      This is the university's own keypair on the university's own host, and it is a live hit
+      against the education regime's `lti` domain standard. It is a machine-to-machine integration
+      plane for approved learning tools, not an open developer API.
+    humanURL: https://qmplus.qmul.ac.uk/
+    baseURL: https://qmplus.qmul.ac.uk/mod/lti/certs.php
+    tags:
+      - Learning Management
+      - LTI
+      - Moodle
+      - Education Technology
+      - Identity
+    properties:
+      - type: x-jwks
+        url: authentication/queen-mary-university-of-london-qmplus-lti-jwks.json
+      - type: Authentication
+        url: authentication/queen-mary-university-of-london-authentication.yml
+      - type: Conformance
+        url: conformance/queen-mary-university-of-london-conformance.yml
+    x-operator: institution
+    x-operator-evidence: >-
+      qmplus.qmul.ac.uk is Queen Mary's own hostname and the RSA keypair published there is the
+      institution's platform key. DNS shows the Moodle instance is hosted with Catalyst IT Europe
+      (qmul-moodle-prod.qmul.catalyst-eu.net); the hosting is outsourced, the platform identity and
+      the keys are not.
+    x-token-endpoint: https://qmplus.qmul.ac.uk/mod/lti/token.php
+    x-auth-endpoint: https://qmplus.qmul.ac.uk/mod/lti/auth.php
+    x-services-endpoint: https://qmplus.qmul.ac.uk/mod/lti/services.php
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        JWKS 200, 553 bytes application/json, one RSA key kid 320e76b70c41719705ce alg RS256.
+        token.php 400 and services.php 405 to bare GETs — both present, both behaving to protocol.
+
+  - aid: queen-mary-university-of-london:qmplus-moodle-webservices
+    name: QMplus Moodle Web Services (REST)
+    description: >-
+      The standard Moodle web-services REST entry point on QMplus. It answers an unauthenticated
+      request with a structured moodle_exception carrying ERRORCODE invalidtoken, which proves the
+      endpoint is enabled and that access is by an institutionally issued token. The function
+      catalogue available to any given token is set per service by Queen Mary and is not published;
+      there is no self-service route to a token and no external documentation of the deployment.
+    humanURL: https://qmplus.qmul.ac.uk/
+    baseURL: https://qmplus.qmul.ac.uk/webservice/rest/server.php
+    tags:
+      - Learning Management
+      - Moodle
+      - Education Technology
+    properties:
+      - type: Authentication
+        url: authentication/queen-mary-university-of-london-authentication.yml
+    x-operator: institution
+    x-operator-evidence: >-
+      Host is under qmul.ac.uk and the deployment is Queen Mary's named VLE. Moodle is the software.
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        200, 192 bytes application/xml, EXCEPTION class core\exception\moodle_exception, ERRORCODE
+        invalidtoken. Live and token-gated.
+
+  - aid: queen-mary-university-of-london:shibboleth-saml-idp
+    name: Shibboleth SAML Identity Provider (UK Access Management Federation)
+    description: >-
+      Queen Mary's own Shibboleth Identity Provider, entityID
+      https://idp.shibboleth.qmul.ac.uk/idp/shibboleth, asserting shibmd:Scope "qmul.ac.uk". Its
+      entity descriptor is published as signed, machine-readable SAML metadata through the Jisc UK
+      Access Management Federation MDQ service and onward into eduGAIN, and was retrieved live on
+      2026-09-01. It advertises SAML 2.0, SAML 1.1 and the native Shibboleth authn profile over
+      HTTP-Redirect, HTTP-POST, HTTP-POST-SimpleSign and SOAP artifact resolution and attribute
+      query. Institution-operated by definition, and the surface class this cohort was most
+      completely missing. It is not a public developer API: nothing can obtain an assertion without
+      being registered as a service provider in the federation.
+    humanURL: https://www.qmul.ac.uk/its/
+    baseURL: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fidp.shibboleth.qmul.ac.uk%2Fidp%2Fshibboleth
+    tags:
+      - Identity
+      - SSO
+      - SAML
+      - Shibboleth
+      - Federation
+      - eduGAIN
+    properties:
+      - type: x-saml-metadata
+        url: authentication/queen-mary-university-of-london-saml-idp-metadata.xml
+      - type: IdentityFederation
+        url: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fidp.shibboleth.qmul.ac.uk%2Fidp%2Fshibboleth
+      - type: Authentication
+        url: authentication/queen-mary-university-of-london-authentication.yml
+      - type: Conformance
+        url: conformance/queen-mary-university-of-london-conformance.yml
+    x-operator: federation
+    x-operator-evidence: >-
+      Signed EntityDescriptor from the UK Access Management Federation, entityID under
+      qmul.ac.uk, shibmd:Scope "qmul.ac.uk", validUntil 2026-09-22. A federation is shared by
+      definition and the IdP behind it is the institution's.
+    x-entity-id: https://idp.shibboleth.qmul.ac.uk/idp/shibboleth
+    x-sso-endpoint: https://idp.shibboleth.qmul.ac.uk/idp/profile/SAML2/Redirect/SSO
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        baseURL is the federation MDQ location because that is the artifact an agent can actually
+        retrieve — 200, 9691 bytes, application/samlmetadata+xml. Note idp.shibboleth.qmul.ac.uk
+        does not answer a public DNS A lookup from outside; the federation metadata is the correct
+        machine-readable pointer and the only one that is fetchable.
+
+  - aid: queen-mary-university-of-london:entra-id-tenant
+    name: Microsoft Entra ID Tenant — OpenID Connect Discovery
+    description: >-
+      Queen Mary's Microsoft Entra ID tenant, GUID 569df091-b013-40e3-86ee-bd9cb9e25814, EU region
+      scope. The OpenID Connect discovery document resolves from the qmul.ac.uk domain hint, which
+      is what ties the tenant to the institution rather than to a supplier, and the same GUID
+      appears independently in the Entra application-proxy CNAME chain fronting elements.qmul.ac.uk,
+      the university's Symplectic Elements deployment. This is the cloud sign-in plane for
+      institutional applications and the second half of Queen Mary's identity estate alongside
+      Shibboleth. It is not an open API: no external client can register against it.
+    humanURL: https://www.qmul.ac.uk/its/
+    baseURL: https://login.microsoftonline.com/qmul.ac.uk/v2.0/.well-known/openid-configuration
+    tags:
+      - Identity
+      - SSO
+      - OpenID Connect
+      - Entra ID
+      - Federation
+    properties:
+      - type: x-openid-configuration
+        url: authentication/queen-mary-university-of-london-entra-openid-configuration.json
+      - type: Authentication
+        url: authentication/queen-mary-university-of-london-authentication.yml
+    x-operator: federation
+    x-operator-evidence: >-
+      The discovery document is served for the qmul.ac.uk domain hint and resolves to a tenant GUID
+      that also appears in the msappproxy CNAME for elements.qmul.ac.uk. The tenant is Queen Mary's;
+      login.microsoftonline.com is Microsoft's shared host, so no Microsoft contract is saved here.
+    x-tenant-id: 569df091-b013-40e3-86ee-bd9cb9e25814
+    x-issuer: https://login.microsoftonline.com/569df091-b013-40e3-86ee-bd9cb9e25814/v2.0
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: 200, 1964 bytes application/json, tenant_region_scope EU.
+
+  - aid: queen-mary-university-of-london:apocrita-hpc
+    name: Apocrita — Queen Mary Research Computing Service
+    description: >-
+      Apocrita is Queen Mary's own high-performance computing cluster, run by ITS Research, and its
+      documentation site is genuinely institution-hosted — docs.hpc.qmul.ac.uk resolves to
+      doc-01.hpc.qmul.ac.uk at 138.37.16.198, inside the university's own address space. The site is
+      built with MkDocs Material and ships a machine-readable search index and sitemap alongside the
+      human documentation, which is the only structured description of the service available from
+      outside. There is no allocation or job-submission API reachable from the public internet;
+      access to the cluster is by institutional account over SSH.
+    humanURL: https://docs.hpc.qmul.ac.uk/
+    baseURL: https://docs.hpc.qmul.ac.uk/search/search_index.json
+    tags:
+      - Research Computing
+      - HPC
+      - Documentation
+    properties:
+      - type: Documentation
+        url: https://docs.hpc.qmul.ac.uk/
+      - type: ResearchComputing
+        url: https://www.qmul.ac.uk/its/its-research/high-performance-computing/
+    x-operator: institution
+    x-operator-evidence: >-
+      Host is under qmul.ac.uk and resolves into Queen Mary's own JANET address space
+      (138.37.16.198), not to any supplier. Title "HPC @ QMUL".
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        search_index.json 200, 810795 bytes application/json; sitemap.xml 200, 27576 bytes; site
+        root 200, generator mkdocs-1.6.1 / mkdocs-material-9.6.12. This is documentation, not an
+        API, and it is recorded as such.
+
+  - aid: queen-mary-university-of-london:primo-ve-discovery
+    name: Library Search — Ex Libris Primo VE / Alma discovery tenancy
+    description: >-
+      Queen Mary's library discovery layer is Ex Libris Primo VE over Alma, fronted by the vanity
+      host librarysearch.qmul.ac.uk, which CNAMEs to qmul.primo.exlibrisgroup.com and on to
+      eu06.primo.exlibrisgroup.com. Two endpoints answer unauthenticated and are scoped to Queen
+      Mary: the Primo public configuration API for view 44QMUL_INST:44QMUL, which returns 161KB of
+      JSON naming the institution and its customer code, and the Alma SRU 1.2 searchRetrieve
+      endpoint, which returned 84,622 MARCXML records for a live query. This is recorded as a
+      tenancy, not as Queen Mary's contract: the data and the catalogue are the university's, the
+      API is Ex Libris'. No Ex Libris specification is saved under this slug.
+    humanURL: https://librarysearch.qmul.ac.uk/nde/home?vid=44QMUL_INST:44QMUL
+    baseURL: https://librarysearch.qmul.ac.uk/view/sru/44QMUL_INST
+    tags:
+      - Library
+      - Discovery
+      - SRU
+      - MARC
+      - Ex Libris
+      - Primo
+    properties:
+      - type: x-examples
+        url: examples/queen-mary-university-of-london-librarysearch-sru-marcxml-example.xml
+      - type: LibraryCatalog
+        url: https://librarysearch.qmul.ac.uk/nde/home?vid=44QMUL_INST:44QMUL
+      - type: x-configuration
+        url: https://librarysearch.qmul.ac.uk/primaws/rest/pub/configuration/vid/44QMUL_INST:44QMUL
+    x-operator: tenant
+    x-operator-evidence: >-
+      librarysearch.qmul.ac.uk CNAMEs to qmul.primo.exlibrisgroup.com. The configuration document
+      self-declares institution.description "Queen Mary University of London" and customer-code
+      44QMUL_INST — an institution-specific account on a vendor platform, which is the definition of
+      a tenant. A hostname-only verdict would have read this as institution-operated.
+    x-vendor: Ex Libris (Clarivate)
+    x-tenant-id: 44QMUL_INST
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        SRU searchRetrieve 200, 6800 bytes text/xml, numberOfRecords 84622, recordSchema marcxml.
+        Public configuration API 200, 161889 bytes application/json.
+
+  - aid: queen-mary-university-of-london:searchstax-site-search
+    name: Queen Mary site and course search — SearchStax Solr tenancy
+    description: >-
+      Every page on qmul.ac.uk, including the undergraduate course finder, queries a hosted Apache
+      Solr index on SearchStax under Queen Mary's own account 29847 and index qmu-1736. The endpoint
+      returns 401 unauthenticated and 200 with the token Queen Mary publishes in its own page source;
+      the query returns the university's course, news and page corpus with a Queen Mary relevance
+      model (boost fields coursetitle_t, deptname_t, sectionType "courses"). It is recorded as a
+      tenancy: the index and the content are Queen Mary's, the search API is SearchStax's. The
+      credential visible in Queen Mary's page source is deliberately not reproduced in this repo.
+    humanURL: https://www.qmul.ac.uk/undergraduate/coursefinder/
+    baseURL: https://searchcloud-1-eu-west-2.searchstax.com/29847/qmu-1736/emselect
+    tags:
+      - Search
+      - Course Catalog
+      - Solr
+      - SearchStax
+    properties:
+      - type: CourseCatalog
+        url: https://www.qmul.ac.uk/undergraduate/coursefinder/
+    x-operator: tenant
+    x-operator-evidence: >-
+      Host searchcloud-1-eu-west-2.searchstax.com is SearchStax's shared platform; the path segment
+      29847/qmu-1736 is Queen Mary's own account and collection. Institution-specific scope on a
+      vendor host.
+    x-vendor: SearchStax
+    x-tenant-id: 29847/qmu-1736
+    x-probe:
+      baseURL_status: 401
+      probed: '2026-09-01'
+      note: >-
+        401 {"message":"Unauthorized"} unauthenticated; 200, 57000 bytes, Solr responseHeader with a
+        Queen Mary relevance model when the token published in the university's own HTML is
+        supplied. Live, tenant-scoped, and not a self-service API.
+
+  - aid: queen-mary-university-of-london:datacite-membership
+    name: DataCite member organisation and repository client
+    description: >-
+      Queen Mary is a DataCite member organisation, provider id "iuar", memberType
+      consortium_organization, linked to ROR https://ror.org/026zzn846, with one registered
+      repository client "bl.qmul" created 2015-04-29 — the bl. prefix placing it inside the British
+      Library DataCite consortium. This is recorded as a registry membership because it is a fact
+      about the institution: Queen Mary mints DataCite DOIs in its own name. The DataCite API is
+      DataCite's contract and is not saved here, and the membership is never deleted to tidy up a
+      shared host.
+    humanURL: https://commons.datacite.org/providers/iuar
+    baseURL: https://api.datacite.org/providers/iuar
+    tags:
+      - Persistent Identifiers
+      - DOI
+      - DataCite
+      - Research Data
+      - Registry
+    properties:
+      - type: Conformance
+        url: conformance/queen-mary-university-of-london-conformance.yml
+    x-operator: registry
+    x-operator-evidence: >-
+      api.datacite.org is DataCite's own host, shared by every member. The membership record names
+      Queen Mary and carries its ROR id.
+    x-member-id: iuar
+    x-repository-client: bl.qmul
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        Queried as https://api.datacite.org/providers?query=queen+mary (200) and
+        https://api.datacite.org/repositories?provider-id=iuar (200).
+
+  - aid: queen-mary-university-of-london:crossref-membership
+    name: Crossref member and DOI prefix
+    description: >-
+      Queen Mary is a Crossref member, id 11031, holding DOI prefix 10.26494. Recorded as a registry
+      membership on the same basis as the DataCite entry: it is a fact about the institution, not a
+      contract the institution wrote. Crossref's API belongs to Crossref.
+    humanURL: https://www.crossref.org/
+    baseURL: https://api.crossref.org/members/11031
+    tags:
+      - Persistent Identifiers
+      - DOI
+      - Crossref
+      - Scholarly Communication
+      - Registry
+    properties:
+      - type: Conformance
+        url: conformance/queen-mary-university-of-london-conformance.yml
+    x-operator: registry
+    x-operator-evidence: >-
+      api.crossref.org is Crossref's own host. The member record names Queen Mary University of
+      London and lists prefix 10.26494.
+    x-member-id: '11031'
+    x-doi-prefix: '10.26494'
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: Queried as https://api.crossref.org/members?query=queen+mary (200).
+
+  - aid: queen-mary-university-of-london:ror-identifier
+    name: ROR organisation identifier
+    description: >-
+      Queen Mary's Research Organization Registry identifier, https://ror.org/026zzn846. It is the
+      join key that connects the institution's DataCite membership, its ORCID affiliation records
+      and its funder and publisher metadata, and it is the identifier any agent should resolve the
+      institution by. Recorded as a registry membership; ROR's API is ROR's.
+    humanURL: https://ror.org/026zzn846
+    baseURL: https://api.ror.org/organizations/https%3A%2F%2Fror.org%2F026zzn846
+    tags:
+      - Persistent Identifiers
+      - ROR
+      - Registry
+      - Research
+    x-operator: registry
+    x-operator-evidence: >-
+      api.ror.org is ROR's own host. The record names Queen Mary University of London and links
+      http://www.qmul.ac.uk/.
+    x-ror-id: https://ror.org/026zzn846
+    x-probe:
+      baseURL_status: 200
+      probed: '2026-09-01'
+      note: >-
+        Resolved via https://api.ror.org/organizations?query=Queen+Mary+University+of+London (200);
+        https://ror.org/026zzn846 also 200.
 common:
-  - type: DomainSecurity
-    url: security/queen-mary-university-of-london-domain-security.yml
   - type: Website
     url: https://www.qmul.ac.uk/
-  - type: GitHub
+  - type: GitHubOrganization
     url: https://github.com/QMUL
   - type: LinkedIn
     url: https://www.linkedin.com/school/queen-mary-university-of-london
-  - type: Repository
+  - type: PrivacyPolicy
+    url: https://www.qmul.ac.uk/privacy/
+  - type: Support
+    url: https://www.qmul.ac.uk/its/support/
+  - type: Blog
+    url: https://www.qmul.ac.uk/news/
+  - type: ResearchRepository
     url: https://qmro.qmul.ac.uk/
+  - type: LibraryCatalog
+    url: https://librarysearch.qmul.ac.uk/nde/home?vid=44QMUL_INST:44QMUL
+  - type: CourseCatalog
+    url: https://www.qmul.ac.uk/undergraduate/coursefinder/
+  - type: OpenData
+    url: https://www.qmul.ac.uk/about/foi/datasets/
+  - type: IdentityFederation
+    url: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fidp.shibboleth.qmul.ac.uk%2Fidp%2Fshibboleth
+  - type: ResearchComputing
+    url: https://docs.hpc.qmul.ac.uk/
+  - type: AIPolicy
+    url: https://www.qmul.ac.uk/digital-education-studio/news-events/de26/february/queen-mary-ai-policy/
+  - type: AITooling
+    url: https://www.qmul.ac.uk/library/academic-skills/student-guide-to-generative-ai/
+  - type: x-research-publications
+    url: https://researchpublications.its.qmul.ac.uk/publications/
+  - type: x-open-research
+    url: https://www.qmul.ac.uk/library/open-research/
+  - type: x-learning-platform
+    url: https://qmplus.qmul.ac.uk/
+  - type: Conformance
+    url: conformance/queen-mary-university-of-london-conformance.yml
+  - type: Authentication
+    url: authentication/queen-mary-university-of-london-authentication.yml
+  - type: DomainSecurity
+    url: security/queen-mary-university-of-london-domain-security.yml
   - type: Plans
     url: plans/queen-mary-university-of-london-plans-pricing.yml
   - type: RateLimits
