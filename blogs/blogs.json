@@ -2,14 +2,14 @@
   "repo": "queen-mary-university-of-london",
   "feeds": [
     {
+      "source": "https://www.qmul.ac.uk/its/support/",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://www.qmul.ac.uk/media/news/",
-      "feed_url": "https://www.qmul.ac.uk/media/news/",
-      "title": "Queen Mary University of London News",
-      "saved": 0,
-      "method": "none",
-      "error": "parse_failed"
+      "error": "HTTPError"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-30T22:05:13Z"
+  "fetched": "2026-09-06T19:17:18Z"
 }
