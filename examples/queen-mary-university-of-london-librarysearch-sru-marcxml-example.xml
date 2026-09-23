@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><searchRetrieveResponse xmlns="http://www.loc.gov/zing/srw/">
+  <version>1.2</version>
+  <numberOfRecords>84622</numberOfRecords>
+  <records>
+    <record>
+      <recordSchema>marcxml</recordSchema>
+      <recordPacking>xml</recordPacking>
+      <recordData>
+        <record xmlns="http://www.loc.gov/MARC21/slim">
+          <leader>02437nam a2200337Ia 4500</leader>
+          <controlfield tag="001">991009161050109614</controlfield>
+          <controlfield tag="005">20260803233053.0</controlfield>
+          <controlfield tag="006">m    g   d</controlfield>
+          <controlfield tag="007">cr bn |||a|bb|</controlfield>
+          <controlfield tag="008">950628s1675    enk     o     00| | lat d</controlfield>
+          <datafield ind1=" " ind2=" " tag="035">
+            <subfield code="a">(CKB)4940000000123715</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="035">
+            <subfield code="a">(EEBO)2240922496</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="035">
+            <subfield code="a">(UnM)9928941800971</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="035">
+            <subfield code="a">(UnM)99897751</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="035">
+            <subfield code="a">(EXLCZ)994940000000123715</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="037">
+            <subfield code="a">CL0037000106</subfield>
+            <subfield code="b">ProQuest Information and Learning. 300 N. Zeeb Rd., Ann Arbor, MI 48106</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="040">
+            <subfield code="a">Uk-ES</subfield>
+            <subfield code="c">Uk-ES</subfield>
+            <subfield code="d">CStRLIN</subfield>
+            <subfield code="d">Cu-RivES</subfield>
+            <subfield code="e">dcrb</subfield>
+            <subfield code="d">WaOLN</subfield>
+          </datafield>
+          <datafield ind1="0" ind2=" " tag="130">
+            <subfield code="a">Catonis disticha.</subfield>
+            <subfield code="l">Latin &amp; English.</subfield>
+          </datafield>
+          <datafield ind1="1" ind2="0" tag="245">
+            <subfield code="a">1. Catonis disticha de moribus :</subfield>
+            <subfield code="b">2. Dicta insignia septem sapientum Græciæ. 3. Mimi publiani, sive, Senecæ proverbia, Anglo-Latina. Cato item grammaticè interpretatus, Latinis &amp; vernaculis vocibus, pari ordine, sed diversis lineis alternatis. Quò sc. ætatula puerilis præcepta vitæ communis ita legant ut intelligant. A Carolo Hoolo, A. M. privatæ scholæ grammaticæ institutore in aurificum viculo apud Londinates. 1. Cato's distichs concerning manners; 2. Excellent sayings of the seven wise men of Greece. 3. Publius's stage-verses, or, Seneca's proverbs in Latine and English. Likewise Cato construed grammatically, with one row Latine and another English. Whereby little children may understandingly learn the rules of common behaviour. By Charles Hoole, Mr. of Arts, and teacher of a private grammar school in Goldsmiths Alley, London.</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="260">
+            <subfield code="a">London :</subfield>
+            <subfield code="b">printed by R.W. for the Company of Stationer[s],</subfield>
+            <subfield code="c">1675.</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="300">
+            <subfield code="a">[24], 70, [2] p.</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="500">
+            <subfield code="a">The distichs are falsely attributed to Cato.</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="500">
+            <subfield code="a">The introduction, 'An advertisement touching Cato, and some other school-books, translated by Charles Hool' is signed and dated: "Charles Hoole. From my school, June 3. 1659".</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="500">
+            <subfield code="a">With alternate English and Latin running titles: 'Cato's distichs', 'Catonis disticha', 'Dicta septem sapientum', 'Sayings of the seven wise men', and 'Publius's stage-verses', 'Mimi Publiani'.</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="500">
+            <subfield code="a">Includes index.</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="500">
+            <subfield code="a">Reproduction of original in the British Library.</subfield>
+          </datafield>
+          <datafield ind1="4" ind2=" " tag="510">
+            <subfield code="a">Wing (CD-ROM, 1996)</subfield>
+            <subfield code="c">C1506aA</subfield>
+          </datafield>
+          <datafield ind1=" " ind2="0" tag="650">
+            <subfield code="a">Latin literature, Medieval and modern</subfield>
+            <subfield code="v">Early works to 1800.</subfield>
+          </datafield>
+          <datafield ind1="1" ind2=" " tag="700">
+            <subfield code="a">Cato, Marcus Porcius,</subfield>
+            <subfield code="d">234 B.C.-149 B.C.</subfield>
+            <subfield code="e">attributed name.</subfield>
+          </datafield>
+          <datafield ind1="1" ind2=" " tag="700">
+            <subfield code="a">Hoole, Charles,</subfield>
+            <subfield code="d">1610-1667.</subfield>
+          </datafield>
+          <datafield ind1="1" ind2=" " tag="700">
+            <subfield code="a">Seneca, Lucius Annaeus,</subfield>
+            <subfield code="d">approximately 4 B.C.-65 A.D.</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="906">
+            <subfield code="a">BOOK</subfield>
+          </datafield>
+          <datafield ind1=" " ind2=" " tag="AVE">
+            <subfield code="8">53121232430009614</subfield>
+            <subfield code="c">61103248920009614</subfield>
+            <subfield code="e">Available</subfield>
+            <subfield code="m">Early English Books Online</subfield>
+            <subfield code="t">ProQuest</subfield>
+            <subfield code="a">44QMUL_INST</subfield>
+            <subfield code="0">991009161050109614</subfield>
+          </datafield>
+        </record>
+      </recordData>
+      <recordIdentifier>991009161050109614</recordIdentifier>
+      <recordPosition>1</recordPosition>
+    </record>
+  </records>
+  <nextRecordPosition>2</nextRecordPosition>
+  <extraResponseData xmlns:xb="http://www.exlibris.com/repository/search/xmlbeans/">
+    <xb:exact>true</xb:exact>
+    <xb:responseDate>2026-09-01T17:49:08+0100</xb:responseDate>
+  </extraResponseData>
+</searchRetrieveResponse>

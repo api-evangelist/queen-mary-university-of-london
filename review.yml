@@ -3,44 +3,149 @@ name: Queen Mary University of London
 description: Queen Mary University of London public developer/API footprint review for APIs.json cataloging.
 url: https://raw.githubusercontent.com/api-evangelist/queen-mary-university-of-london/refs/heads/main/review.yml
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-09-01'
 reviews:
-  - date: '2026-06-03'
-    rating: 2
-    summary: >-
-      Queen Mary University of London has no central, branded developer portal
-      or signup-gated public REST API program. The confirmed public,
-      machine-accessible surface is standards-based and research-oriented: the
-      QMRO DSpace institutional repository exposes a public OAI-PMH interface
-      (verb=Identify returned HTTP 200, though the host intermittently rate-
-      limits non-browser clients), and the QMUL GitHub organization (HTTP 200,
-      ~18 repos) publishes staff open-source code. Core platforms — the main
-      website, MyQMUL, and the FOI datasets page — return HTTP 403 to scripted
-      requests and are browser/auth oriented; QMplus (Moodle) loads publicly but
-      is a gated LMS, not a documented API. No endpoints were fabricated; only
-      URLs probed live or independently corroborated (OpenDOAR/ROAR) are listed.
-    endpoints:
-      - url: https://qmro.qmul.ac.uk/oai/request?verb=Identify
-        status: 200
-        note: QMRO DSpace OAI-PMH 2.0 endpoint; intermittently blocks non-browser user agents.
-      - url: https://qmro.qmul.ac.uk/
-        status: 403
-        note: QMRO repository home; blocks scripted requests, loads in browser.
-      - url: https://github.com/QMUL
-        status: 200
-        note: Confirmed official QMUL GitHub organization, staff open-source code (~18 repos).
-      - url: https://www.qmul.ac.uk/
-        status: 403
-        note: Official institutional website; 403 to curl, browser-accessible.
-      - url: https://www.qmul.ac.uk/about/foi/datasets/
-        status: 403
-        note: FOI datasets page (downloadable files, not an API); 403 to scripted request.
-      - url: https://my.qmul.ac.uk/
-        status: 403
-        note: MyQMUL student/staff portal; authentication-gated.
-      - url: https://qmplus.qmul.ac.uk/
-        status: 200
-        note: QMplus Moodle LMS landing page; gated learning platform, no public API docs.
-      - url: https://www.linkedin.com/school/queen-mary-university-of-london
-        status: 200
-        note: Official LinkedIn school page.
+- date: '2026-06-03'
+  rating: 2
+  summary: 'Queen Mary University of London has no central, branded developer portal or signup-gated public
+    REST API program. The confirmed public, machine-accessible surface is standards-based and research-oriented:
+    the QMRO DSpace institutional repository exposes a public OAI-PMH interface (verb=Identify returned
+    HTTP 200, though the host intermittently rate- limits non-browser clients), and the QMUL GitHub organization
+    (HTTP 200, ~18 repos) publishes staff open-source code. Core platforms — the main website, MyQMUL,
+    and the FOI datasets page — return HTTP 403 to scripted requests and are browser/auth oriented; QMplus
+    (Moodle) loads publicly but is a gated LMS, not a documented API. No endpoints were fabricated; only
+    URLs probed live or independently corroborated (OpenDOAR/ROAR) are listed.'
+  endpoints:
+  - url: https://qmro.qmul.ac.uk/oai/request?verb=Identify
+    status: 200
+    note: QMRO DSpace OAI-PMH 2.0 endpoint; intermittently blocks non-browser user agents.
+  - url: https://qmro.qmul.ac.uk/
+    status: 403
+    note: QMRO repository home; blocks scripted requests, loads in browser.
+  - url: https://github.com/QMUL
+    status: 200
+    note: Confirmed official QMUL GitHub organization, staff open-source code (~18 repos).
+  - url: https://www.qmul.ac.uk/
+    status: 403
+    note: Official institutional website; 403 to curl, browser-accessible.
+  - url: https://www.qmul.ac.uk/about/foi/datasets/
+    status: 403
+    note: FOI datasets page (downloadable files, not an API); 403 to scripted request.
+  - url: https://my.qmul.ac.uk/
+    status: 403
+    note: MyQMUL student/staff portal; authentication-gated.
+  - url: https://qmplus.qmul.ac.uk/
+    status: 200
+    note: QMplus Moodle LMS landing page; gated learning platform, no public API docs.
+  - url: https://www.linkedin.com/school/queen-mary-university-of-london
+    status: 200
+    note: Official LinkedIn school page.
+- date: '2026-09-01'
+  rating: 3
+  summary: 'Re-profiled under the university pipeline, which put operator attribution ahead of artifact
+    volume. The 2026-06-03 review was wrong in one specific and instructive way: it credited QMRO''s OAI-PMH
+    endpoint on the strength of an HTTP 200 from verb=Identify. That body is 2426 bytes of obfuscated
+    JavaScript bot-challenge with no OAI-PMH envelope in it, and the DSpace 8 OAI path returns an explicit
+    WAF interstitial. The OAI claim is withdrawn. What the earlier pass missed is larger than what it
+    got wrong: QMRO runs DSpace 8.4 and serves an unauthenticated HAL service document advertising 79
+    endpoint families; QMplus is an LTI 1.3 Advantage tool platform publishing a live JWKS plus OIDC auth,
+    token and services endpoints; the Moodle web-services REST endpoint is live and token-gated; Apocrita
+    HPC documentation is self-hosted in Queen Mary''s own address space; the university''s Shibboleth
+    IdP is retrievable as signed SAML metadata from the UK Access Management Federation; and its Microsoft
+    Entra ID tenant publishes an OpenID Connect discovery document resolvable from the qmul.ac.uk domain
+    hint. Two tenant relationships were recorded rather than claimed as Queen Mary''s engineering: Ex
+    Libris Primo VE over Alma behind librarysearch.qmul.ac.uk (public configuration API and SRU both answer,
+    84,622 records), and a SearchStax Solr index behind site and course search. Three registry memberships
+    were evidenced: DataCite provider iuar with repository client bl.qmul, Crossref member 11031 with
+    prefix 10.26494, and ROR 026zzn846. Two candidates were rejected on evidence: qmul.figshare.com is
+    not a Figshare tenancy (an invented subdomain returns the identical 202 zero-byte body), and the AWS
+    API Gateway URL on every qmul.ac.uk page is explicitly marked a honeypot link. No contract was saved
+    and no spec was generated: Queen Mary publishes no OpenAPI and none was invented for it.'
+  endpoints:
+  - url: https://qmro.qmul.ac.uk/server/api
+    status: 200
+    note: DSpace 8.4 REST API, application/hal+json, 8621 bytes, 79 endpoint families. Institution-operated.
+  - url: https://qmro.qmul.ac.uk/server/oai/request?verb=Identify
+    status: 403
+    note: WAF interstitial "Web Page Blocked!", attack_ID 20000021. OAI-PMH unverifiable from outside.
+  - url: https://qmro.qmul.ac.uk/oai/request?verb=Identify
+    status: 200
+    note: SOFT 200 — JavaScript bot challenge, not an OAI-PMH response. Corrects the 2026-06-03 claim.
+  - url: https://qmro.qmul.ac.uk/
+    status: 403
+    note: Repository home; WAF blocks scripted clients, loads in a browser. Live and blocked.
+  - url: http://mdq.ukfederation.org.uk/entities/https%3A%2F%2Fidp.shibboleth.qmul.ac.uk%2Fidp%2Fshibboleth
+    status: 200
+    note: Signed SAML EntityDescriptor, 9691 bytes, scope qmul.ac.uk. Institution-operated IdP.
+  - url: https://login.microsoftonline.com/qmul.ac.uk/v2.0/.well-known/openid-configuration
+    status: 200
+    note: Entra ID tenant 569df091-b013-40e3-86ee-bd9cb9e25814, region EU.
+  - url: https://qmplus.qmul.ac.uk/mod/lti/certs.php
+    status: 200
+    note: LTI 1.3 JWKS, one RSA key kid 320e76b70c41719705ce. Live hit on the education regime lti standard.
+  - url: https://qmplus.qmul.ac.uk/mod/lti/token.php
+    status: 400
+    note: LTI Advantage token endpoint present; 400 to a bare GET is protocol behaviour.
+  - url: https://qmplus.qmul.ac.uk/mod/lti/services.php
+    status: 405
+    note: LTI Advantage services endpoint present.
+  - url: https://qmplus.qmul.ac.uk/webservice/rest/server.php
+    status: 200
+    note: Moodle web services live; moodle_exception ERRORCODE invalidtoken. Token-gated.
+  - url: https://librarysearch.qmul.ac.uk/primaws/rest/pub/configuration/vid/44QMUL_INST:44QMUL
+    status: 200
+    note: Primo VE public configuration, 161889 bytes, institution "Queen Mary University of London".
+      Tenant.
+  - url: https://librarysearch.qmul.ac.uk/view/sru/44QMUL_INST
+    status: 200
+    note: Alma SRU 1.2 searchRetrieve, MARCXML, numberOfRecords 84622. Tenant.
+  - url: https://searchcloud-1-eu-west-2.searchstax.com/29847/qmu-1736/emselect
+    status: 401
+    note: 401 unauthenticated; 200 with the token Queen Mary publishes in its own page source. Tenant
+      Solr index.
+  - url: https://api.datacite.org/providers?query=queen+mary
+    status: 200
+    note: Provider iuar, consortium_organization, rorId https://ror.org/026zzn846. Registry membership.
+  - url: https://api.crossref.org/members?query=queen+mary
+    status: 200
+    note: Member 11031, DOI prefix 10.26494. Registry membership.
+  - url: https://ror.org/026zzn846
+    status: 200
+    note: ROR identifier.
+  - url: https://docs.hpc.qmul.ac.uk/search/search_index.json
+    status: 200
+    note: Apocrita HPC docs search index, 810795 bytes. Self-hosted at 138.37.16.198.
+  - url: https://researchpublications.its.qmul.ac.uk/publications/
+    status: 200
+    note: Symplectic Elements portal on Queen Mary’s own host; /api, /oai and /rss all 404. Pointer only.
+  - url: https://qmul.figshare.com/
+    status: 202
+    note: REJECTED. zzznotarealtenant.figshare.com returns the identical 202 zero-byte body — wildcard,
+      not a tenancy.
+  - url: https://4xvmpmomo3.execute-api.us-east-1.amazonaws.com/ProdStage
+    status: 200
+    note: REJECTED. Marked rel="nofollow" aria-hidden "honeypot link" on every qmul.ac.uk page.
+  - url: https://timetables.qmul.ac.uk/
+    status: 302
+    note: Redirects to login.aspx. Gated.
+  - url: https://mysis.qmul.ac.uk/
+    status: 200
+    note: Student information system sign-in wall.
+  - url: https://www.qmul.ac.uk/media/qmul/about/collegeinfo/datasets/module-enrolments.csv
+    status: 200
+    note: 1085844 bytes CSV under the FOI publication scheme — the whole of the open data.
+  - url: https://www.qmul.ac.uk/llms.txt
+    status: 404
+    note: No agent-facing catalogue.
+  - url: https://api.qmul.ac.uk/
+    status: 0
+    note: Does not resolve.
+  - url: https://data.qmul.ac.uk/
+    status: 0
+    note: Does not resolve. No open data portal.
+  - url: https://github.com/QMUL
+    status: 200
+    note: 19 public repos, research code, active. No API specs.
+  - url: https://www.linkedin.com/school/queen-mary-university-of-london
+    status: 999
+    note: LinkedIn bot challenge. Live and blocked.

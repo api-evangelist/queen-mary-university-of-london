@@ -1,0 +1,249 @@
+{
+  "dspaceUI": "https://qmro.qmul.ac.uk",
+  "dspaceName": "DSpace at My University",
+  "dspaceServer": "https://qmro.qmul.ac.uk/server",
+  "dspaceVersion": "DSpace 8.4",
+  "type": "root",
+  "_links": {
+    "actuator": {
+      "href": "https://qmro.qmul.ac.uk/server/actuator"
+    },
+    "authn": {
+      "href": "https://qmro.qmul.ac.uk/server/api/authn"
+    },
+    "authorizations": {
+      "href": "https://qmro.qmul.ac.uk/server/api/authz/authorizations"
+    },
+    "bitstreamformats": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/bitstreamformats"
+    },
+    "bitstreams": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/bitstreams"
+    },
+    "browses": {
+      "href": "https://qmro.qmul.ac.uk/server/api/discover/browses"
+    },
+    "bulkaccessconditionoptions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/bulkaccessconditionoptions"
+    },
+    "bundles": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/bundles"
+    },
+    "claimedtasks": {
+      "href": "https://qmro.qmul.ac.uk/server/api/workflow/claimedtasks"
+    },
+    "claimedtasks-search": {
+      "href": "https://qmro.qmul.ac.uk/server/api/workflow/claimedtasks/search"
+    },
+    "collections": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/collections"
+    },
+    "communities": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/communities"
+    },
+    "contentreport": {
+      "href": "https://qmro.qmul.ac.uk/server/api/contentreport"
+    },
+    "correctiontypes": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/correctiontypes"
+    },
+    "discover": {
+      "href": "https://qmro.qmul.ac.uk/server/api/discover"
+    },
+    "dso": {
+      "href": "https://qmro.qmul.ac.uk/server/api/dso/find{?uuid}",
+      "templated": true
+    },
+    "enqueueretry": {
+      "href": "https://qmro.qmul.ac.uk/server/api/ldn/messages/{id}/enqueueretry",
+      "templated": true
+    },
+    "entitytypes": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/entitytypes"
+    },
+    "eperson-registration": {
+      "href": "https://qmro.qmul.ac.uk/server/api/eperson/registrations"
+    },
+    "epersons": {
+      "href": "https://qmro.qmul.ac.uk/server/api/eperson/epersons"
+    },
+    "externalsources": {
+      "href": "https://qmro.qmul.ac.uk/server/api/integration/externalsources"
+    },
+    "features": {
+      "href": "https://qmro.qmul.ac.uk/server/api/authz/features"
+    },
+    "feedbacks": {
+      "href": "https://qmro.qmul.ac.uk/server/api/tools/feedbacks"
+    },
+    "groups": {
+      "href": "https://qmro.qmul.ac.uk/server/api/eperson/groups"
+    },
+    "identifiers": {
+      "href": "https://qmro.qmul.ac.uk/server/api/pid/identifiers"
+    },
+    "itemfilters": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/itemfilters"
+    },
+    "itemrequests": {
+      "href": "https://qmro.qmul.ac.uk/server/api/tools/itemrequests"
+    },
+    "items": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/items"
+    },
+    "itemtemplates": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/itemtemplates"
+    },
+    "ldnservices": {
+      "href": "https://qmro.qmul.ac.uk/server/api/ldn/ldnservices"
+    },
+    "messages": {
+      "href": "https://qmro.qmul.ac.uk/server/api/ldn/messages"
+    },
+    "metadatafields": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/metadatafields"
+    },
+    "metadataschemas": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/metadataschemas"
+    },
+    "notifyrequests": {
+      "href": "https://qmro.qmul.ac.uk/server/api/ldn/notifyrequests"
+    },
+    "oidc": {
+      "href": "https://qmro.qmul.ac.uk/server/api/authn"
+    },
+    "pid": {
+      "href": "https://qmro.qmul.ac.uk/server/api/pid/find{?id}",
+      "templated": true
+    },
+    "pooltasks": {
+      "href": "https://qmro.qmul.ac.uk/server/api/workflow/pooltasks"
+    },
+    "pooltasks-search": {
+      "href": "https://qmro.qmul.ac.uk/server/api/workflow/pooltasks/search"
+    },
+    "processes": {
+      "href": "https://qmro.qmul.ac.uk/server/api/system/processes"
+    },
+    "properties": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/properties"
+    },
+    "qualityassuranceevents": {
+      "href": "https://qmro.qmul.ac.uk/server/api/integration/qualityassuranceevents"
+    },
+    "qualityassurancesources": {
+      "href": "https://qmro.qmul.ac.uk/server/api/integration/qualityassurancesources"
+    },
+    "qualityassurancetopics": {
+      "href": "https://qmro.qmul.ac.uk/server/api/integration/qualityassurancetopics"
+    },
+    "registrations": {
+      "href": "https://qmro.qmul.ac.uk/server/api/eperson/registrations"
+    },
+    "relationships": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/relationships"
+    },
+    "relationshiptypes": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/relationshiptypes"
+    },
+    "resourcepolicies": {
+      "href": "https://qmro.qmul.ac.uk/server/api/authz/resourcepolicies"
+    },
+    "resourcepolicies-search": {
+      "href": "https://qmro.qmul.ac.uk/server/api/authz/resourcepolicies/search"
+    },
+    "scripts": {
+      "href": "https://qmro.qmul.ac.uk/server/api/system/scripts"
+    },
+    "self": {
+      "href": "https://qmro.qmul.ac.uk/server/api"
+    },
+    "sites": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/sites"
+    },
+    "statistics": {
+      "href": "https://qmro.qmul.ac.uk/server/api/statistics"
+    },
+    "submissionaccessoptions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissionaccessoptions"
+    },
+    "submissioncclicenseUrls": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissioncclicenseUrls"
+    },
+    "submissioncclicenseUrls-search": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissioncclicenseUrls/search"
+    },
+    "submissioncclicenses": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissioncclicenses"
+    },
+    "submissioncoarnotifyconfigs": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissioncoarnotifyconfigs"
+    },
+    "submissiondefinitions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissiondefinitions"
+    },
+    "submissionforms": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissionforms"
+    },
+    "submissionsections": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissionsections"
+    },
+    "submissionuploads": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/submissionuploads"
+    },
+    "subscriptions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/subscriptions"
+    },
+    "subscriptions-search": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/subscriptions/search"
+    },
+    "suggestions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/integration/suggestions"
+    },
+    "suggestionsources": {
+      "href": "https://qmro.qmul.ac.uk/server/api/integration/suggestionsources"
+    },
+    "suggestiontargets": {
+      "href": "https://qmro.qmul.ac.uk/server/api/integration/suggestiontargets"
+    },
+    "supervisionorders": {
+      "href": "https://qmro.qmul.ac.uk/server/api/core/supervisionorders"
+    },
+    "systemwidealerts": {
+      "href": "https://qmro.qmul.ac.uk/server/api/system/systemwidealerts"
+    },
+    "usagereports": {
+      "href": "https://qmro.qmul.ac.uk/server/api/statistics/usagereports"
+    },
+    "versionhistories": {
+      "href": "https://qmro.qmul.ac.uk/server/api/versioning/versionhistories"
+    },
+    "versions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/versioning/versions"
+    },
+    "vocabularies": {
+      "href": "https://qmro.qmul.ac.uk/server/api/submission/vocabularies"
+    },
+    "vocabularyEntryDetails": {
+      "href": "https://qmro.qmul.ac.uk/server/api/submission/vocabularyEntryDetails"
+    },
+    "vocabularyEntryDetails-search": {
+      "href": "https://qmro.qmul.ac.uk/server/api/submission/vocabularyEntryDetails/search"
+    },
+    "workflowactions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/workflowactions"
+    },
+    "workflowdefinitions": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/workflowdefinitions"
+    },
+    "workflowitems": {
+      "href": "https://qmro.qmul.ac.uk/server/api/workflow/workflowitems"
+    },
+    "workflowsteps": {
+      "href": "https://qmro.qmul.ac.uk/server/api/config/workflowsteps"
+    },
+    "workspaceitems": {
+      "href": "https://qmro.qmul.ac.uk/server/api/submission/workspaceitems"
+    }
+  }
+}
